@@ -1,27 +1,18 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-@font-face {
-    font-family: "VenusRising";
-    src: url("fonts/venus_rising_rg-webfont.woff") format("woff"),
-          url("fonts/venus_rising_rg-webfont.woff2") format("woff2");
-}
-  
-@font-face {
-    font-family: "TypeWriter";
-    src: url("fonts/jmh_typewriter-webfont.woff") format("woff"),
-          url("fonts/jmh_typewriter-webfont.woff2") format("woff2");
+    font-family: 'Dancing Script', cursive
 }
 
 .panier {
     margin-right: 15px;
 }
+.search {
+    padding-right: 80px;
+}
 
-.dropdown:hover .dropdown-menu
+/* .dropdown:hover .dropdown-menu
 {
     display: block;
-}
+} */
 
 .colorchangered:hover{
     color:red; 
@@ -159,3 +150,10 @@ body {
       font-size: 18px;
   }
 
+.checked { 
+    color: rgb(255, 135, 7);
+}
+
+.item{
+    text-align: center;
+}
