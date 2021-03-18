@@ -43,8 +43,6 @@ $('.add-to-cart').click(function() {
     tableCart = []
   }
 
-
-
     let $this = $(this);
     let id = $this.attr('data-id')
     let name = $this.attr('data-name')
@@ -75,14 +73,12 @@ $('.add-to-cart').click(function() {
     badge()
 })
 
-
-
 // remplissage de la modal pour quelle soit prete lors de l'apel 
 
 function displayCart() {
-  $('#article-modal').text('');
-  $('#price-modal').text('');
-  $('#qte-modal').text('');
+  $('#article-modal').text('Artcle(s)');
+  $('#price-modal').text('Prix');
+  $('#qte-modal').text('Quantité(s)');
 
   if(sessionStorage.getItem('tableCart')  != undefined) {
     JSON.parse(sessionStorage.getItem('tableCart')).forEach((element) => {
@@ -106,7 +102,6 @@ $('.buy').click(function() {
 function badge() {
   if(sessionStorage.getItem('tableCart',JSON.stringify(tableCart))  == undefined) {
     $('.badge').text(0);
-    console.log('coucou');
   } else {
     let total = JSON.parse(sessionStorage.getItem('tableCart')).reduce((acc, qte ) => acc +=qte.qte , 0)
       $('.badge').text(total);
