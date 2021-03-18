@@ -22,7 +22,7 @@ $('.add-to-cart').click(function() {
     let $this = $(this);
     let id = $this.attr('data-id')
     let name = $this.attr('data-name')
-    let price = $this.attr('data-price')
+    let price = parseInt($this.attr('data-price'))
     let qte = parseInt($this.attr('data-qte'))
 
     let newArticle = true
@@ -52,26 +52,36 @@ $('.add-to-cart').click(function() {
 // remplissage de la modal pour quelle soit prete lors de l'apel 
 
 function displayCart() {
-  $('#article-modal').text('');
-  $('#price-modal').text('');
-  $('#qte-modal').text('');
+  
+  let subTt = 0
+  $('#article-modal').text('article');
+  $('#price-modal').text('prix');
+  $('#qte-modal').text('qte');
+  //$('.subtotal').text('')
 
   if(sessionStorage.getItem('tableCart')  != undefined) {
+    subGrandTotal = 0
     JSON.parse(sessionStorage.getItem('tableCart')).forEach((element) => {
       articles = '<p>'+element.name+'</p>'
       $('#article-modal').append(articles);
-      let itemPrice = element.price.replace(',', '.') * 1000
+      let itemPrice = element.price * 1000
       subTotal = (itemPrice * element.qte) / 1000
       price = '<p>'+subTotal+'</p>'
       $('#price-modal').append(price)
       qte = '<p>'+element.qte+'</p>'
       $('#qte-modal').append(qte)
+      subGrandTotal += subTotal
+      
+      
     })
+    $('.subtotal').append(subGrandTotal)
   }
+  
 }
 
 // appel de la modal au click  
 $('.buy').click(function() {
+  subTt = 0
  displayCart()
 })
 
@@ -80,14 +90,14 @@ function badge() {
     $('.badge').text(0);
     console.log('coucou');
   } else {
-    let total = JSON.parse(sessionStorage.getItem('tableCart')).reduce((acc, qte ) => acc +=qte.qte , 0)
+    let total = JSON.parse(sessionStorage.getItem('tableCart')).reduce((acc, qte ) => acc += qte.qte , 0)
       $('.badge').text(total);
     };
   }
 
 $('.clearCart').click(function() {
+  $('.subtotal').empty()
   sessionStorage.clear();
   displayCart()
   badge()
 })
-  

@@ -1,5 +1,6 @@
 body {
-    font-family: 'Dancing Script', cursive
+    font-family: 'Dancing Script', cursive;
+    background-color: #f0eee4;
 }
 
 .panier {
@@ -8,6 +9,18 @@ body {
 
 .search {
     padding-right: 80px;
+}
+
+.panierPhone {
+    margin-right: 15px;
+}
+
+.fab {
+    color: gainsboro;
+}
+
+.pay {
+    background-color: #e9e7dd;
 }
 
 .colorchangered:hover {
@@ -29,6 +42,12 @@ body {
 .colorchange:hover {
     color: crimson;
 }
+
+.titre {
+    text-shadow: 7px 5px #f0eee4;
+    font-size: 65px;
+}
+
 
 .margin {
     margin-top: 3%;
