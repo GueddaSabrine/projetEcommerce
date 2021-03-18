@@ -2,7 +2,6 @@ body {
     font-family: 'Dancing Script', cursive;  
     background-color: #f0eee4;
 }
-
 .panier {
     margin-right: 15px;
 }
@@ -18,28 +17,13 @@ body {
 .pay {
     background-color: #e9e7dd;
 }
-
-.colorchangered:hover{
-    color:red; 
-    }        
-.colorchangeblue:hover{
-    color:blue; 
-    }        
-.colorchangepink:hover{
-    color:red; 
-    }       
-.colorchangelightblue:hover{
-    color:blue; 
-    }
 .colorchange:hover{
-    color:crimson;
+    color:#e9e7dd;
 }   
 .titre {
-    text-shadow: 7px 5px #f0eee4;
+    text-shadow: 7px 5px #c4c4c4c9;
     font-size: 65px;
 }
-
-
 .margin{
     margin-top: 3%;
 }
