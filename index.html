@@ -96,9 +96,11 @@
                     <a type="button" class="btn btn-warning d-block d-md-none" data-bs-toggle="modal"
                         data-bs-target="#modal"><i class="fas fa-sign-in-alt"></i></a>
                     <a type="button" class="panier btn btn-secondary d-none d-md-block float-end buy"
-                        data-bs-toggle="modal" data-bs-target="#modalPanier"><i class="fas fa-shopping-cart buy"></i>
+                        data-bs-toggle="modal" data-bs-target="#modalPanier"><span class="badge bg-secondary"></span>
+                        <span class="visually-hidden">unread messages</span><i class="fas fa-shopping-cart buy"></i>
                         Panier</a>
-                    <a type="button" class="btn btn-warning d-block d-md-none"><i class="fas fa-shopping-cart"></i></a>
+                    <a type="button" class="btn btn-warning d-block d-md-none"><i class="fas fa-shopping-cart"></i>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -446,7 +448,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary clearCart">Supprimer le panier</button>
                 </div>
             </div>
         </div>

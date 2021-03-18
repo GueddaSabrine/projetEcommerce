@@ -1,8 +1,24 @@
 // initialisation d'un tableau vide pour stocker les valeur du clique " ajouter au panier"
 let tableCart = []
 
+if (sessionStorage.getItem('tableCart')  == undefined) {
+  console.log('coucou');
+}else {
+  badge()
+  displayCart()
+}
+
 // Au clique on push l'objet "contentCar" dans le tableau
 $('.add-to-cart').click(function() {
+
+  if(sessionStorage.getItem('tableCart')) {
+    tableCart = JSON.parse(sessionStorage.getItem('tableCart'));
+  } else {
+    tableCart = []
+  }
+
+
+
     let $this = $(this);
     let id = $this.attr('data-id')
     let name = $this.attr('data-name')
@@ -16,7 +32,6 @@ $('.add-to-cart').click(function() {
       if (element.id == id) {
           newArticle = false;
           element.qte += qte;
-          console.log('qte modifier')
       }
     })
 
@@ -27,11 +42,11 @@ $('.add-to-cart').click(function() {
           price: price,
           qte: qte,
         })
-    console.log('creation ok' ,tableCart)
     }
 
     // on stock le le tableau d'objet dans le sessionStorage
-    sessionStorage.setItem('tableCart',JSON.stringify(tableCart))   
+    sessionStorage.setItem('tableCart',JSON.stringify(tableCart))    
+    badge()
 })
 
 // remplissage de la modal pour quelle soit prete lors de l'apel 
@@ -41,23 +56,38 @@ function displayCart() {
   $('#price-modal').text('');
   $('#qte-modal').text('');
 
-  JSON.parse(sessionStorage.getItem('tableCart')).forEach((element) => {
-    articles = '<p>'+element.name+'</p>'
-    $('#article-modal').append(articles);
-    let itemPrice = element.price.replace(',', '.') * 1000
-    subTotal = (itemPrice * element.qte) / 1000
-    price = '<p>'+subTotal+'</p>'
-    $('#price-modal').append(price)
-    qte = '<p>'+element.qte+'</p>'
-    $('#qte-modal').append(qte)
-  })
+  if(sessionStorage.getItem('tableCart')  != undefined) {
+    JSON.parse(sessionStorage.getItem('tableCart')).forEach((element) => {
+      articles = '<p>'+element.name+'</p>'
+      $('#article-modal').append(articles);
+      let itemPrice = element.price.replace(',', '.') * 1000
+      subTotal = (itemPrice * element.qte) / 1000
+      price = '<p>'+subTotal+'</p>'
+      $('#price-modal').append(price)
+      qte = '<p>'+element.qte+'</p>'
+      $('#qte-modal').append(qte)
+    })
+  }
 }
 
-// appel de la modal au click 
-
+// appel de la modal au click  
 $('.buy').click(function() {
  displayCart()
- console.log(JSON.parse(sessionStorage.getItem('tableCart')))
 })
 
-console.log(JSON.parse(sessionStorage.getItem('tableCart')))
+function badge() {
+  if(sessionStorage.getItem('tableCart',JSON.stringify(tableCart))  == undefined) {
+    $('.badge').text(0);
+    console.log('coucou');
+  } else {
+    let total = JSON.parse(sessionStorage.getItem('tableCart')).reduce((acc, qte ) => acc +=qte.qte , 0)
+      $('.badge').text(total);
+    };
+  }
+
+$('.clearCart').click(function() {
+  sessionStorage.clear();
+  displayCart()
+  badge()
+})
+  
