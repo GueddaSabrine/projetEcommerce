@@ -1,42 +1,12 @@
-a{
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background: url(http://i1.adis.ws/i/crabtree_evelyn/wishlistspritesheet) no-repeat;
-    background-position: 0 0;
-    cursor: pointer;
-  }
-  
-  .add {
-    animation: add-to-wishlist 1s steps(22);
-    background-position: -1320px 0;
-    transition: background 1s steps(22);
-  }
-  
-  .remove {
-    background-position: -1680px 0;
-    transition: background 1s steps(7);
-    animation: remove-from-wishlist 1s steps(7);
-  }
-  
-  @keyframes add-to-wishlist {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -1320px 0;
-    }
-  }
-  
-  @keyframes remove-from-wishlist {
-    0% {
-      background-position: -1320px 0;
-    }
-    100% {
-      background-position: -1680px 0;
-    }
-  }
-  
-  
+ul
+{ 
+    list-style: disc;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    margin-left: -20px;
+    padding-left: 20px;
+}
