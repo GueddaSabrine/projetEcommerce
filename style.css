@@ -33,7 +33,9 @@ body {
 .mleft{
     margin-top: 30px;
 }
-
+.name {
+    font-family: Helvetica, sans-serif;
+}
 
 /* CSS Carousel */
 
